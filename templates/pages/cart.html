@@ -1,0 +1,67 @@
+
+{% extends 'pages/base.html'%}
+
+
+{% block content%}
+
+    <div class="page-cart u-s-p-t-80">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <form>
+                        <!-- Products-List-Wrapper -->
+                        <div class="table-wrapper u-s-m-b-60">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Product</th>
+                                        <th>Price</th>
+                                        <th>Quantity</th>
+                                        <th>Subtotal</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for i in products %}
+                                    {% for j in orders %}
+                                    {% if i.id == j.productid %}
+                                    <tr>
+                                        <td>
+                                            <div class="cart-anchor-image">
+                                                <a href="/product/{{i.id}}">
+                                                    <img src="{{i.image.url}}" alt="Product">
+                                                    <h6>{{i.name}}</h6>
+                                                </a>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="cart-price">
+                                                ${{i.price}}
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="cart-quantity">
+                                                <div class="quantity">
+                                                    <input type="text" class="quantity-text-field" value="{{j.num}}">
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                                <a href="/deleteitem/{{j.id}}"><input type="btn" class="button button-outline-secondary fas fa-trash" value="DELETE"></a>
+                                       </td>
+                                    </tr>
+                                    {% endif %}
+                                    {% endfor %}
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+   
+                    </form>
+                   \
+                    <!-- Billing /- -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Cart-Page /- -->
+    {% endblock content%}

@@ -1,0 +1,218 @@
+
+{% extends 'pages/base.html'%}
+
+
+{% block content%}
+
+    
+
+    <div class="page-shop u-s-p-t-80">
+        <div class="container">
+
+            <div class="shop-intro">
+                <h3>New Products</h3>
+            </div>
+            <!-- Shop-Intro /- -->
+            <div class="row">
+                <!-- Shop-Left-Side-Bar-Wrapper -->
+                <div class="col-lg-3 col-md-3 col-sm-12">
+                    <!-- Fetch-Categories-from-Root-Category  -->
+                    <div class="fetch-categories">
+                        <h3 class="title-name">Browse Categories</h3>
+                        <!-- Level-2 -->
+                        <h3 class="fetch-mark-category">
+                            <a href="shop-v2-sub-category.html">Tops
+                            </a>
+                        </h3>
+                        <!-- Level-2 /- -->
+                        <!-- Level-3 -->
+                        <ul>
+                            {% for i in categories %}
+                        
+                            <li>
+                                <a href="category/{{i.id}}">{{i.name}}
+                                </a>
+                            </li>
+                          {% endfor %} 
+                        </ul>
+
+                        <!-- Level-3 /- -->
+                    </div>
+                    <!-- Fetch-Categories-from-Root-Category  /- -->
+                </div>
+                <!-- Shop-Left-Side-Bar-Wrapper /- -->
+                <!-- Shop-Right-Wrapper -->
+                <div class="col-lg-9 col-md-9 col-sm-12">
+                    <!-- Page-Bar -->
+                    <div class="page-bar clearfix">
+                        <div class="shop-settings">
+                            <a id="list-anchor" class="active">
+                                <i class="fas fa-th-list"></i>
+                            </a>
+                            <a id="grid-anchor">
+                                <i class="fas fa-th"></i>
+                            </a>
+                        </div>
+                    
+                        <!-- Toolbar Sorter 2  -->
+                        <div class="toolbar-sorter-2">
+                            <div class="select-box-wrapper">
+                                <label class="sr-only" for="show-records">Show Records Per Page</label>
+                                <select class="select-box" id="show-records">
+                                    <option selected="selected" value="">Show: 8</option>
+                                    <option value="">Show: 16</option>
+                                    <option value="">Show: 28</option>
+                                </select>
+                            </div>
+                        </div>
+                        <!-- //end Toolbar Sorter 2  -->
+                    </div>
+                    <!-- Page-Bar /- -->
+                    <!-- Row-of-Product-Container -->
+                    <div class="row product-container list-style">
+
+                        {% for i in products %}
+
+
+                        <div class="product-item col-lg-4 col-md-6 col-sm-6">
+                            <div class="item">
+                                <div class="image-container">
+                                    <a class="item-img-wrapper-link" href="/product/{{i.id}}">
+                                        <img class="img-fluid" src="{{i.image.url}}" alt="Product">
+                                    </a>
+                                
+                                </div>
+                                <div class="item-content">
+                                    <div class="what-product-is">
+                                        <h6 class="item-title">
+                                            <a href="/product/{{i.id}}">
+                                                {{i.name}}
+                                            </a>
+                                        </h6>
+                                        <div class="item-description">
+                                            <p>{{i.desciption}}
+                                            </p>    
+                                        </div>
+                                    </div>
+                                    <div class="price-template">
+                                        <div class="item-new-price">
+                                            {{i.price}} $
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                        {% endfor %}
+                        
+
+
+                    </div>
+                    <!-- Row-of-Product-Container /- -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Site-Priorities /- -->
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <!-- Outer-Footer -->
+            <div class="outer-footer-wrapper u-s-p-y-80">
+                <h6>
+                    For special offers and other discount information
+                </h6>
+                <h1>
+                    Subscribe to our Newsletter
+                </h1>
+                <p>
+                    Subscribe to the mailing list to receive updates on promotions, new arrivals, discount and coupons.
+                </p>
+                <form class="newsletter-form">
+                    <label class="sr-only" for="newsletter-field">Enter your Email</label>
+                    <input type="text" id="newsletter-field" placeholder="Your Email Address">
+                    <button type="submit" class="button">SUBMIT</button>
+                </form>
+            </div>
+            <!-- Outer-Footer /- -->
+            <!-- Mid-Footer -->
+            <div class="mid-footer-wrapper u-s-p-b-80">
+                <div class="row">
+                    <div class="col-lg-3 col-md-3 col-sm-12">
+                        <div class="footer-list">
+                            <h6>CUSTOMER SERVICE</h6>
+                            <ul>
+                                <li>
+                                    <a href="faq.html">FAQs</a>
+                                </li>
+                                <li>
+                                    <a href="track-order.html">Track Order</a>
+                                </li>
+                                <li>
+                                    <a href="terms-and-conditions.html">Terms & Conditions</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-12">
+                        <div class="footer-list">
+                            <h6>COMPANY</h6>
+                            <ul>
+                                <li>
+                                    <a href="home.html">Home</a>
+                                </li>
+                                <li>
+                                    <a href="about.html">About</a>
+                                </li>
+                                <li>
+                                    <a href="contact.html">Contact</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-12">
+                        <div class="footer-list">
+                            <h6>INFORMATION</h6>
+                            <ul>
+                                <li>
+                                    <a href="store-directory.html">Categories Directory</a>
+                                </li>
+                                <li>
+                                    <a href="wishlist.html">My Wishlist</a>
+                                </li>
+                                <li>
+                                    <a href="cart.html">My Cart</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-12">
+                        <div class="footer-list">
+                            <h6>Address</h6>
+                            <ul>
+                                <li>
+                                    <i class="fas fa-location-arrow u-s-m-r-9"></i>
+                                    <span>Egypt, Assuit</span>
+                                </li>
+                                <li>
+                                    <a href="">
+                                        <i class="fas fa-phone u-s-m-r-9"></i>
+                                        <span>+999999999</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="mailto:contact@domain.com">
+                                        <i class="fas fa-envelope u-s-m-r-9"></i>
+                                        <span>
+                                            contact@domain.com</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            {% endblock content%}
